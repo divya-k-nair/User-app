@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:user_app/main.dart';
 
 class Register extends StatelessWidget {
   TextEditingController name=TextEditingController();
@@ -16,7 +17,14 @@ class Register extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  SingleChildScrollView(
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home:Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+        title:Text("REGISTER") ,
+    ),
+    body:SingleChildScrollView(
       child: Container(
         margin: EdgeInsets.all(20),
         child: Column(
@@ -233,10 +241,30 @@ class Register extends StatelessWidget {
 
                 ),
               ),
-            )
+            ),
+            SizedBox(height: 20,),
+            SizedBox(
+              height: 60,
+              width: double.infinity,
+              child: RaisedButton(
+                color: Colors.green,
+                onPressed:(){
+                  Navigator.push(context, MaterialPageRoute(builder: (context)=>App()));
+
+              },
+                child: Text("BACK TO HOME",
+                  style: TextStyle(
+                    color: Colors.black,
+                    fontSize: 25,
+                  ),
+              ),
+            ),
+            ),
           ],//children
         ),
       ),
+    ),
+    ),
     );
   }
 }
